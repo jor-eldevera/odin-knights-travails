@@ -4,6 +4,7 @@ export default class Board {
     constructor() {
         this.squares = [];
         this.createSquares();
+        this.setAllSquaresMoves();
     }
 
     createSquares() {
@@ -55,6 +56,12 @@ export default class Board {
         moves[7] = this.getSquare([this.changeChar(square.getLetter(), -2), square.getNumber() - 1]);
 
         square.setMoves(moves);
+    }
+
+    setAllSquaresMoves() {
+        for (let i = 0; i < this.squares.length - 1; i++) {
+            this.setMoves(this.squares[i]);
+        }
     }
 
     changeChar(c, n) {
