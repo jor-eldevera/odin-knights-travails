@@ -1,0 +1,20 @@
+{
+  "name": "odin-knights-travails",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Board.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jor-eldevera/odin-knights-travails.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jor-eldevera/odin-knights-travails/issues"
+  },
+  "homepage": "https://github.com/jor-eldevera/odin-knights-travails#readme",
+  "type": "module"
+}
