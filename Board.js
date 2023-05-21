@@ -65,9 +65,14 @@ export default class Board {
         }
     }
 
+    /**
+     * Performs a level-order search on the starting node, finding the shortest path to the ending node.
+     * @param {Array} startPosition Is the starting position of the search. Must be in format [ "a", 7 ]
+     * @param {*} endPosition Is the ending position of the search. Must be in format [ "a", 7 ]
+     * @returns the path from start to end as an array of Squares
+     */
     knightMoves(startPosition, endPosition) {
         let startingNode = this.getSquare(startPosition);
-        let endingNode = this.getSquare(endPosition);
 
         let queue = new ArrayQueue();
         queue.enqueue({ node: startingNode, path: [] });
