@@ -10,16 +10,23 @@ let b = new Board();
 let d4 = new Square(["d", 4]);
 b.setMoves(d4);
 console.log("d4 moves:");
-console.log(d4.getMoves());
+// console.log(d4.getMoves());
 
 let a1 = new Square(["a", 1]);
 b.setMoves(a1);
 console.log("a1 moves:");
-console.log(a1.getMoves());
+// console.log(a1.getMoves());
 
 let c2 = b.getSquare(["c", 2]);
 console.log("c2 moves:");
-console.log(c2.getMoves());
+// console.log(c2.getMoves());
 
-console.log("a".charCodeAt(0));
-console.log("h".charCodeAt(0));
+printKnightMoves(b.knightMoves(["d", 8], ["d", 7]));
+
+function printKnightMoves(moves) {
+    console.log("You made it in " + (moves.length - 1) + " moves! Here's your path:");
+
+    for (let move of moves) {
+        console.log(move.position);
+    }
+}
