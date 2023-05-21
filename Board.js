@@ -1,4 +1,5 @@
 import Square from "./Square.js";
+import ArrayQueue from "./ArrayQueue.js";
 
 export default class Board {
     constructor() {
@@ -61,6 +62,29 @@ export default class Board {
     setAllSquaresMoves() {
         for (let i = 0; i < this.squares.length - 1; i++) {
             this.setMoves(this.squares[i]);
+        }
+    }
+
+    knightMoves(startPosition, endPosition) {
+        let startingNode = this.getSquare(startPosition);
+        let endingNode = this.getSquare(endPosition);
+
+        let queue = new ArrayQueue();
+        queue.enqueue({ node: startingNode, path: [] });
+        while (!queue.isEmpty()) {
+            let current = queue.getFront();
+
+            // If current is our goal, return the path as an array of nodes
+            if (this.arraysEqual(current.node.getPosition(), endPosition)) {
+                return [...current.path, current.node];
+            }
+
+            // Add moves to the queue
+            for (let i = 1; i <= 7; i++) {
+                if (current.node.getMoves()[i] !== undefined) queue.enqueue({ node: current.node.getMoves()[i], path: [...current.path, current.node]});
+            }
+            
+            queue.dequeue();
         }
     }
 
